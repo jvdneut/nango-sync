@@ -15,6 +15,8 @@ Nango's SDKs and REST API let you embed managing capabilities in your product, s
 
 ### Pause a Sync
 
+Pauses a Sync so no further sync jobs will run. You can reactivate the Sync with [Resume](#resume-a-sync).
+
 <Tabs groupId="programming-language">
   <TabItem value="node" label="Node SDK">
 
@@ -39,6 +41,8 @@ nango.pause(123); // Param is the 'sync_id' returned upon Sync creation.
 </Tabs>
 
 ### Resume a Sync
+
+Resumes a Sync if it has been paused before: A first sync job will trigger immediately, afterwards your set frequency or cron schedule will continue as usual.
 
 <Tabs groupId="programming-language">
   <TabItem value="node" label="Node SDK">
@@ -65,6 +69,8 @@ nango.resume(123); // Param is the 'sync_id' returned upon Sync creation.
 
 ### Cancel a Sync
 
+Permanently stops a Sync from running. Cancelled Syncs cannot be reactivated.
+
 <Tabs groupId="programming-language">
   <TabItem value="node" label="Node SDK">
 
@@ -89,6 +95,8 @@ nango.cancel(123); // Param is the 'sync_id' returned upon Sync creation.
 </Tabs>
 
 ### Trigger a Sync job
+
+Manually trigger a Sync to run a sync job immediately. This is useful if you e.g. want to allow customers to trigger an immediate run in the UI. After the job runs the normal frequency or cron schedule will continue as usual.
 
 <Tabs groupId="programming-language">
   <TabItem value="node" label="Node SDK">
