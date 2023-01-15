@@ -241,8 +241,9 @@ let api_token = "fake-token";      // Your Hubspot API token
 let config = {
     friendly_name: 'Hubspot Contacts',                         // Give this Sync a name for prettier logs.
     mapped_table: 'hubspot_contacts',                          // Name of the destination SQL table
-    method: NangoHttpMethod.POST,                              // Required info to query the right endpoint.
+    method: NangoHttpMethod.GET,                               // Required info to query the right endpoint.
     headers: { authorization: `Bearer ${api_token}` },         // For auth.
+    query_params: { limit: 100 },                              // Get 100 records per page (HubSpot API setting)
     paging_cursor_request_path: 'after',                       // For adding pagination data in requests.
     paging_cursor_metadata_response_path: 'paging.next.after', // For finding pagination data in responses.
     response_path: 'results',                                  // For finding records in the API response.
@@ -251,7 +252,7 @@ let config = {
     frequency: '1 minute'                                      // How often sync jobs run in natural language.
 };
 
-new Nango().sync('https://api.hubapi.com/crm/v3/objects/contacts/search', config);
+new Nango().sync('https://api.hubapi.com/crm/v3/objects/contacts', config);
 ```
   </TabItem>
   <TabItem value="curl" label="REST API (curl)">
