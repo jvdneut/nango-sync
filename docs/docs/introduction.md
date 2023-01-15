@@ -3,44 +3,66 @@ slug: /
 sidebar_label: Introduction
 ---
 
-# Nango: The fast & flexible way to sync data from 3rd party APIs
+# Nango: The fast way to integrate your app with 3rd-party APIs
 
-Nango continuously syncs data from any API endpoint to your database and keeps it fresh for you.
+The service that lets you easily synchronise data between your app and any 3rd-party API.
 
 
-## ⭐ Nango at a glance
+## ⭐ Why Nango?
 
-Nango continuously syncs data from any API endpoint (that returns JSON) to your database.
+Adding integrations to an app is complicated.
 
-Add Syncs to Nango with 1 line of code in your application:
-```ts
-nango.sync('https://api.hubspot.com/crm/v3/contacts', ...); // Syncs contacts forever!
+At first, it looks as simple as making requests to a 3rd-party API. But you quickly need to build OAuth, background synchronisation, retries, pagination, caching, webhooks, data transformation, monitoring, etc.
+
+We pre-built these components so you don’t have to and can focus on shipping low maintenance integrations fast.
+
+## ✨ How it works
+
+With Nango, building integrations becomes as simple as: 
+
+1. Authenticate users with OAuth in your frontend: 
+
+```jsx
+nango.auth('hubspot', '<user-id>'); // Starts OAuth flow
 ```
 
-Nango then takes care of:
+2. Easily sync data from any API endpoint to your DB in the backend:
 
--   Pagination & full first sync
--   Periodic refresh with incremental syncs
--   Deduplication of records & upserts of changed data
--   Automatic schema mapping from JSON to table/SQL schema
--   Detecting schema changes & alert you
--   Automatic retries & rate-limit handling
--   Making sure your sync is robust, so you never again have to worry about stuck/stale syncs or manual restarts
+```tsx
+nango.sync('https://api.hubspot.com/crm/v3/contacts', config); // Syncs contacts forever!
+```
+
+3. Read the always-fresh data from the DB and use it in your app
+```sql
+SELECT * FROM hubspot_contacts WHERE ...
+```
+
+Additionally, Nango has out-of-the-box support for:
+
+- 🔐 OAuth token retrieval & refresh
+- 📶 Incremental syncs
+- 🪝 Webhooks
+- ⚡️ JSON-to-SQL schema mapping
+- 🔄 Retries & rate-limit handling
+- 🚀 Scalable & flexible open-source infrastructure
+- ✅ Language-agnostic
+- ☁️ Self-hosted and Cloud options
 
 ## 🧑‍💻 Example use cases
 
-Nango is API agnostic: It works with any API endpoint that returns JSON (you just need to [give it a few details](https://docs.nango.dev/add-sync#sync-options) about the endpoint).
+Nango is API agnostic: It works with any API endpoint that returns JSON (you just need to [give it a few details](nango-sync/sync-all-options.md) about the endpoint).
 
-Whilst Nango supports millions of APIs, here are some of the most popular ones:
-- **CRMs** such as [HubSpot](https://docs.nango.dev/real-world-examples#hubspot-sync-all-hubspot-crm-contacts), Salesforce, Pipedrive, Zoho CRM, Zendesk Sell etc.
+While Nango supports millions of APIs, here are some of the most popular ones:
+
+- **CRMs** such as [HubSpot](real-world-examples.md#hubspot-sync-all-hubspot-crm-contacts), Salesforce, Pipedrive, Zoho CRM, Zendesk Sell etc.
 - **Accounting systems** such as Quickbooks, Xero, Netsuite, Zoho Books, Freshbooks etc.
 - **Cloud providers** such as AWS, GCP, Azure, DigitalOcean, Fly.io, Heroku etc.
-- **Productivity tools** such as Gmail, Google Calendar, [Slack](https://docs.nango.dev/real-world-examples#slack-sync-all-posts-from-a-slack-channel), Outlook 365, Zoom, Google Drive etc.
-- **Project Management tools** such as Airtable, Assana, Monday.com, ClickUp etc.
-- **Devtools** such as [Github](https://docs.nango.dev/real-world-examples#github-sync-all-stargazers-from-a-repo), Gitlab, JIRA, Trello, Figma etc.
-- ...any API endpoint that returns JSON
+- **Productivity tools** such as Gmail, Google Calendar, [Slack](real-world-examples.md#slack-sync-all-posts-from-a-slack-channel), Outlook 365, Zoom, Google Drive etc.
+- **Project Management tools** such as Airtable, Asana, Monday.com, ClickUp etc.
+- **Dev tools** such as [Github](real-world-examples.md#github-sync-all-stargazers-from-a-repo), Gitlab, JIRA, Trello, Figma etc.
+-   ...any API endpoint that returns JSON
 
-We have [more examples](https://docs.nango.dev/real-world-examples) of Nango configurations for different APIs and endpoints.
+The docs have [more examples](real-world-examples.md) of Nango configurations for different APIs and endpoints.
 
 ## 🔍 Try it & learn more
 
@@ -48,7 +70,7 @@ We have [more examples](https://docs.nango.dev/real-world-examples) of Nango con
 The fastest way to see Nango in action is with our [Quickstart 🚀](quickstart.md), head over there and sync data to your local machine in less than 3 minutes.
 
 **Understand how Nango works**  
-If you are ready to take a closer look we recommend you start with the [Architecture](architecture.md).
+If you are ready to take a closer look we recommend you start with the [Core concepts](nango-sync/core-concepts.md).
 
 **See what you can build with Nango**  
 You can also check out some [real-world examples](real-world-examples.md) of things you can sync with Nango (keep in mind, it works with any API endpoint so these are just examples). Or join our [Slack community](https://nango.dev/slack) to see what others are building with Nango.
