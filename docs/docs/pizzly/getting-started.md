@@ -51,12 +51,17 @@ Now run `npx pizzly config:list` again and you should see your freshly added con
 
 ## Step 2: Trigger the OAuth flow from your frontend
 
-Add the following scripts to your HTML headers (or use the `@nangohq/pizzly-frontend` npm package): 
+For quick testing add the following scripts tag to your HTML headers: 
 ```html
 <!-- ... -->
 <script>var exports = {};</script> <!-- Necessary hack to import Pizzly's script successfully. -->
 <script src="https://unpkg.com/@nangohq/pizzly-frontend/dist/index.js"></script>
 <!-- ... -->
+```
+
+For single page apps where you bundle your Javascript/Typescript files you can directly use the `@nangohq/pizzly-frontend` package:
+```ts
+import Pizzly from '@nangohq/pizzly-frontend';
 ```
 
 Once you created an instance of Pizzly (which tells the frontend where to find your Pizzly server) triggering a new OAuth flow is easy:
@@ -67,7 +72,7 @@ var pizzly = new Pizzly('http://localhost:3003');
 // Trigger an OAuth flow
 // The first parameter is the config key you set up in step 1
 // The second parameter is the connection id under which this authentication should be stored
-pizzly.auth('github', '<connection-id>');
+pizzly.auth('github', '<connection-id>')
 .then((result) => { 
     console.log(`OAuth flow succeeded for provider "${result.providerConfigKey}" and connection-id "${result.connectionId}"!`);
 })
