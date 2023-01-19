@@ -97,7 +97,7 @@ Let’s sync the Pokémon API to your DB in 3 minutes.
 Clone the repo and start Nango locally…
 
 ```bash
-git clone <https://github.com/NangoHQ/nango.git> 
+git clone https://github.com/NangoHQ/nango.git 
 cd nango && docker compose up
 ```
 
@@ -105,7 +105,7 @@ cd nango && docker compose up
 
 ```bash
 curl --request POST \     
-	--url <http://localhost:3003/v1/syncs> \     
+	--url http://localhost:3003/v1/syncs \     
 	--header "Content-type: application/json" \     
 	--data '{"url": "https://pokeapi.co/api/v2/pokemon", "response_path": "results", "paging_url_path":"next", "mapped_table":"pokemons", "frequency":"1 minute"}'
 ```
