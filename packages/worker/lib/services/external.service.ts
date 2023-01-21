@@ -136,9 +136,12 @@ class ExternalService {
 
             // Offset + limit pagination
             if (sync.paging_offset_request_path != null && sync.paging_limit_request_path != null && sync.paging_limit != null) {
-                if (newResults.length == sync.paging_limit) {
-                    offset += sync.paging_limit;
+                if (newResults.length > 0) {
+                    offset += newResults.length;
                     continue;
+                } else {
+                    // The last page was empty, so we should not count it.
+                    page -= 1;
                 }
             }
 
