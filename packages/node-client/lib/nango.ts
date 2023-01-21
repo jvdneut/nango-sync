@@ -20,6 +20,9 @@ export interface NangoSyncConfig {
     paging_cursor_object_response_path?: string;
     paging_url_path?: string;
     paging_header_link_rel?: string;
+    paging_offset_request_path?: string;
+    paging_limit_request_path?: string;
+    paging_limit?: number;
     auto_mapping?: boolean;
     mapped_table?: string;
     frequency?: string;
@@ -55,6 +58,9 @@ export class Nango {
             paging_cursor_object_response_path: config.paging_cursor_object_response_path,
             paging_url_path: config.paging_url_path,
             paging_header_link_rel: config.paging_header_link_rel,
+            paging_offset_request_path: config.paging_offset_request_path,
+            paging_limit_request_path: config.paging_limit_request_path,
+            paging_limit: config.paging_limit,
             auto_mapping: config.auto_mapping,
             mapped_table: config.mapped_table,
             frequency: config.frequency,

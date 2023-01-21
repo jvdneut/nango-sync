@@ -18,6 +18,7 @@ class ExternalService {
         var results: any[] = [];
         let done = false;
         let pageCursor = null;
+        let offset = 0;
         let maxNumberOfRecords = sync.max_total || 10000;
         sync.body = sync.body || {};
 
@@ -41,6 +42,17 @@ class ExternalService {
                     config.params[sync.paging_cursor_request_path] = pageCursor; // Cursor in query params.
                 } else if (['post', 'put', 'patch'].includes(sync.method)) {
                     sync.body[sync.paging_cursor_request_path] = pageCursor; // Cursor in body params.
+                }
+            }
+
+            //  Fetching subsequent page with offset + limit.
+            if (sync.paging_offset_request_path != null && sync.paging_limit_request_path != null && sync.paging_limit != null) {
+                if (['get', 'delete'].includes(sync.method)) {
+                    config.params[sync.paging_offset_request_path] = offset;
+                    config.params[sync.paging_limit_request_path] = sync.paging_limit;
+                } else if (['post', 'put', 'patch'].includes(sync.method)) {
+                    sync.body[sync.paging_offset_request_path] = offset;
+                    sync.body[sync.paging_limit_request_path] = sync.paging_limit;
                 }
             }
 
@@ -118,6 +130,14 @@ class ExternalService {
                 if (linkHeader != null && sync.paging_header_link_rel in linkHeader && isValidHttpUrl(linkHeader[sync.paging_header_link_rel]['url'])) {
                     let nextPageUrl = linkHeader[sync.paging_header_link_rel]['url'];
                     sync.url = nextPageUrl;
+                    continue;
+                }
+            }
+
+            // Offset + limit pagination
+            if (sync.paging_offset_request_path != null && sync.paging_limit_request_path != null && sync.paging_limit != null) {
+                if (newResults.length == sync.paging_limit) {
+                    offset += sync.paging_limit;
                     continue;
                 }
             }

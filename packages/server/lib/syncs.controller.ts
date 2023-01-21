@@ -18,6 +18,9 @@ class SyncsController {
             paging_cursor_object_response_path: req.body['paging_cursor_object_response_path'],
             paging_url_path: req.body['paging_url_path'],
             paging_header_link_rel: req.body['paging_header_link_rel'],
+            paging_offset_request_path: req.body['paging_offset_request_path'],
+            paging_limit_request_path: req.body['paging_limit_request_path'],
+            paging_limit: req.body['paging_limit'],
             auto_mapping: req.body['auto_mapping'] || true, // Default to auto mapping enabled.
             mapped_table: req.body['mapped_table'],
             frequency: req.body['frequency'],
