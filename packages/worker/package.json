@@ -1,6 +1,6 @@
 {
     "name": "@nangohq/worker",
-    "version": "0.5.0",
+    "version": "0.5.2",
     "description": "Nango's worker.",
     "type": "module",
     "main": "dist/lib/worker.js",
@@ -15,8 +15,8 @@
     },
     "license": "SEE LICENSE IN LICENSE FILE IN GIT REPOSITORY",
     "dependencies": {
-        "@nangohq/core": "^0.5.0",
-        "@nangohq/pizzly-node": "^0.5.0",
+        "@nangohq/core": "^0.5.2",
+        "@nangohq/pizzly-node": "^0.5.2",
         "@temporalio/worker": "^1.4.4",
         "@temporalio/workflow": "^1.4.4",
         "@types/lodash": "^4.14.188",
