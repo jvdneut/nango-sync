@@ -120,9 +120,9 @@ Request a Nango instance on the [Slack community](https://nango.dev/slack) (free
 
 - See the [documentation](https://docs.nango.dev) to learn more about all the features
 - Use our [examples](https://docs.nango.dev/real-world-examples) to get inspiration and learn how to sync data from various APIs
-- Join our [Slack community](https://join.slack.com/t/lago-community/shared_invite/zt-1bw903041-PsxQmQios5utmETm1EZkvQ) if you need help, want to chat or follow releases
+- Join our [Slack community](https://nango.dev/slack) if you need help, want to chat or follow releases
 - Check our [blog on in-app integrations](https://www.nango.dev/blog)
-- Follow us on [Twitter](https://twitter.com/GetLago) for the latest news
+- Follow us on [Twitter](https://twitter.com/nangohq) for the latest news
 - You can email us as well: hello@nango.dev
 
 # 💪 Contributors
