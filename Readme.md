@@ -16,7 +16,7 @@ The service that lets you easily synchronise data between your app and any 3rd-p
     <br />
 
   <br/>
-    <a href="https://.nango.dev">Website</a>
+    <a href="https://nango.dev">Website</a>
     ·
     <a href="https://docs.nango.dev/real-world-examples">Examples</a>
     ·
