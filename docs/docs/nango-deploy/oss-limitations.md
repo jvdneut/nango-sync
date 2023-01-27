@@ -1,10 +1,11 @@
 # Limitations of Nango Open Source
 
-Nango Open Source has some limitations compared to Nango Cloud. Please take them into consideration before using Nango Open Source in production: 
-- Transient storage due to Docker (updating the Docker image causes configs/credentials loss). Connect Nango to a production DB to mitigate.
-- No default encryption of the credentials
-- No default authentication
-- No default SSL access
-- No auto-scaling and auto-updates
+To keep the setup of the Nango open source version simple we have made some choices that may not be ideal for production. Please take them into consideration before using it in production: 
+- The database is bundled in the docker container with transient storage. This means that updating the Docker image causes configs/credentials loss. We recommend that you connect Nango to a production DB that lives outside the docker setup to mitigate this.
+- Credentials are not encrypted at rest and stored in plain text
+- No authentication by default
+- No SSL setup by default
+- The setup is not optimized for scaling
+- Updating the provider templates requires an update of the docker containers
 
-Please consider using [Nango Cloud](cloud.md) in production to mitigate these limitations and benefit from additional features.
+These limitations do not apply to [Nango Cloud](cloud.md).

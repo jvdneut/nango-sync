@@ -147,7 +147,7 @@ const sidebars = {
     {
       id: 'configuration',
       type: 'doc',
-      label: 'Other Configuration'
+      label: 'Advanced Configuration'
     },
     'contribute-api',
     'migration'
