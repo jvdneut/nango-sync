@@ -17,7 +17,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'nangohq', // Usually your GitHub org/user name.
-  projectName: 'nango', // Usually your repo name.
+  projectName: 'nango-sync', // Usually your repo name.
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
