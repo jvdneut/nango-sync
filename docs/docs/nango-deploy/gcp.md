@@ -50,3 +50,7 @@ docker-compose rm -f
 docker-compose pull
 docker-compose up -d
 ```
+
+## Limitations
+
+The Nango Open Source version has some [limitations](oss-limitations.md) that you should read before deploying to production.

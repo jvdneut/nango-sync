@@ -20,12 +20,12 @@ Ready? Let's go!
 In a directory of your choice run:
 
 ```bash
-git clone https://github.com/NangoHQ/nango.git
+git clone https://github.com/NangoHQ/nango-sync.git
 ```
 
 And then start Nango:
 ```bash
-cd nango && docker compose up  # cd nango && docker-compose up if you are on an older version of docker
+cd nango-sync && docker compose up  # cd nango-sync && docker-compose up if you are on an older version of docker
 ```
 
 ## Step 2: Create a new Sync

@@ -108,7 +108,7 @@ const sidebars = {
       link: {
         type: 'generated-index',
         title: 'Deploy Nango Open Source',
-        description: 'Self-host Nango on a single machine using Docker. For production use cases, we recommend using Nango Cloud (see Limitations below).',
+        description: 'Self-host Nango on a single machine using Docker (❗️read Limitations below before deploying to production).',
         slug: '/category/deploy-nango-sync-open-source'
       },
       items: [

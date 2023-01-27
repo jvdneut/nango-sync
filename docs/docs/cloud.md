@@ -15,7 +15,7 @@
 
 ## Use Nango Cloud
 
-Get an Cloud instance [here](https://nango.dev/start). Check your emails for your the instance URL and your secret key.
+Get an Cloud instance [here](https://nango.dev/start). Check your emails for your instance URL and secret key.
 
 Go through the [Quickstart](quickstart.md) and:
 - use the instance URL to instantiate the Nango frontend SDK
