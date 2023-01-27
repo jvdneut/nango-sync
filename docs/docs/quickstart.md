@@ -51,12 +51,13 @@ Now run `npx nango config:list` again and you should see your freshly added conf
 
 ## Step 2: Trigger the OAuth flow from your frontend
 
-For quick testing add the following scripts tag to your HTML headers: 
+For quick testing you can use a script tag in your HTML file and load the frontend library directly from NPM: 
 ```html
-<!-- ... -->
-<script>var exports = {};</script> <!-- Necessary hack to import Nango's script successfully. -->
-<script src="https://unpkg.com/@nangohq/frontend/dist/index.js"></script>
-<!-- ... -->
+<script type="module">
+    import Nango from 'https://unpkg.com/@nangohq/frontend/dist/index.js';
+
+    //....
+</script>
 ```
 
 For single page apps where you bundle your Javascript/Typescript files you can directly use the `@nangohq/frontend` package:
