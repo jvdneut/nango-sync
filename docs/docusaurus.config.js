@@ -80,7 +80,8 @@ const config = {
         title: 'Nango Docs',
         logo: {
           alt: 'Nango Docs',
-          src: 'img/nango-favicon.svg',
+          src: 'img/nango-favicon-black-background.svg',
+          srcDark: 'img/nango-favicon.svg',
         },
         items: [
           {
