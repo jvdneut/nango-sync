@@ -5,22 +5,22 @@ import TabItem from '@theme/TabItem';
 
 ## OAuth
 
-Nango leverages our sister project [Pizzly](https://github.com/NangoHQ/Pizzly) to handle authentication with OAuth APIs. 
+Nango leverages our sister project [Nango](https://github.com/NangoHQ/nango) to handle authentication with OAuth APIs. 
 
-Pizzly + Nango let you benefit from: 
+Nango + Nango Sync let you benefit from: 
 - a full OAuth 2 and OAuth 1.0a dance implementation
 - a frontend SDK that makes it easy trigger new OAuth flows from your web app
 - a backend SDK & REST API that make it easy to get always-fresh access tokens for your API calls
 - a CLI that makes it easy to manage your OAuth provider configs, setup different environments and debug OAuth issues
-- a built-in way to authenticate Nango Syncs, using access tokens maintained fresh by Pizzly
+- a built-in way to authenticate Nango Syncs, using access tokens maintained fresh by Nango
 
 ### Getting started with OAuth
 
-To get stared with OAuth, follow the instructions in the [Pizzly docs](../pizzly/getting-started.md).
+To get stared with OAuth, follow the instructions in the [Nango docs](quickstart.md).
 
-Once your have successfully created a Provider Configuration and Connection, specify the `pizzly_provider_config_key` and `pizzly_connection_id` parameters in your [Sync config options](sync-all-options.md) (cf. example below).
+Once your have successfully created a Provider Configuration and Connection, specify the `nango_provider_config_key` and `nango_connection_id` parameters in your [Sync config options](sync-all-options.md) (cf. example below).
 
-Finally, specify where the access token should go in the request using the `${pizzlyAccessToken}` notation (cf. example below). It will automatically be replaced with a fresh access token before each API requests made by your Sync.
+Finally, specify where the access token should go in the request using the `${nangoAccessToken}` notation (cf. example below). It will automatically be replaced with a fresh access token before each API requests made by your Sync.
 
 ### Example: syncing Hubspot contacts with OAuth
 
@@ -34,13 +34,13 @@ let config = {
     //==================
     // OAuth access token insertion
     //==================
-    headers: { authorization: "Bearer ${pizzlyAccessToken}" }, // Templating is used to insert the token where you specify.
+    headers: { authorization: "Bearer ${nangoAccessToken}" }, // Templating is used to insert the token where you specify.
 
     //==================
-    // Pizzly configuration
+    // Nango configuration
     //==================
-    pizzly_connection_id: '1',                                 // Connection ID configured with Pizzly.
-    pizzly_provider_config_key: 'hubspot',                     // Provider configuration configured with Pizzly.
+    nango_connection_id: '1',                                 // Connection ID configured with Nango.
+    nango_provider_config_key: 'hubspot',                     // Provider configuration configured with Nango.
 
     //==================
     // Other Sync parameters
@@ -64,9 +64,9 @@ new Nango().sync('https://api.hubapi.com/crm/v3/objects/contacts/search', config
  --header "Content-type: application/json" \
  --data '{
     "url": "https://api.hubapi.com/crm/v3/objects/contacts/search",
-    "headers": { "Authorization": "Bearer ${pizzlyAccessToken}"},
-    "pizzly_connection_id": "1",
-    "pizzly_provider_config_key": "hubspot",
+    "headers": { "Authorization": "Bearer ${nangoAccessToken}"},
+    "nango_connection_id": "1",
+    "nango_provider_config_key": "hubspot",
     "method": "POST",
     "paging_cursor_request_path": "after",
     "paging_cursor_metadata_response_path": "paging.next.after",
@@ -81,11 +81,11 @@ new Nango().sync('https://api.hubapi.com/crm/v3/objects/contacts/search', config
 # Templating is used to insert the token where you specify.
 #
 #==================
-# Pizzly configuration
+# Nango configuration
 #==================
 #
-# - pizzly_connection_id: Connection ID configured with Pizzly.
-# - pizzly_provider_config_key: Provider configuration configured with Pizzly.
+# - nango_connection_id: Connection ID configured with Nango.
+# - nango_provider_config_key: Provider configuration configured with Nango.
 #
 
   ```

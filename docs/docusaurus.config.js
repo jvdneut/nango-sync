@@ -86,13 +86,14 @@ const config = {
           {
             type: 'doc',
             docId: 'introduction',
-            position: 'left',
-            label: 'Nango Docs',
+            label: 'Nango',
+            position: 'left'
           },
           {
-            label: 'Pizzly Docs',
-            to: '/pizzly/',
-            position: 'left'
+            type: 'doc',
+            docId: 'nango-sync/introduction',
+            position: 'left',
+            label: 'Nango Sync',
           },
           {
             label: 'Community Slack',
@@ -119,11 +120,7 @@ const config = {
               {
                 label: 'Quickstart 🚀',
                 to: '/quickstart',
-              },
-              {
-                label: 'Architecture',
-                to: '/architecture',
-              },
+              }
             ],
           },
           {

@@ -3,7 +3,7 @@ import TabItem from '@theme/TabItem';
 
 # Create Syncs
 
-Adding a Sync to Nango is quick & easy. If you have not read the [core concepts](core-concepts.md) yet please do so first: From here on out we assume you are familiar with Syncs and how they work together with your application.
+Adding a Sync to Nango is quick & easy. If you have not read the [core concepts](/nango-sync/use-nango/core-concepts.md) yet please do so first: From here on out we assume you are familiar with Syncs and how they work together with your application.
 
 ## 3 quick steps to add a new Sync
 
@@ -18,7 +18,7 @@ This example shows you all the possible configuration options for a Nango Sync.
 
 **All configuration fields are optional** (though you may need to provide the relevant ones for the external API request to succeed). 
 
-If you want to see some examples of them in action take a look at the [real world examples](real-world-examples.md) page.
+If you want to see some examples of them in action take a look at the [real world examples](/nango-sync/real-world-examples.md) page.
 
 For all the `path` parameters you can use `.` characters to reference keys in nested objects: `paging.next.after`
 
@@ -89,10 +89,10 @@ let config = {
     frequency: "1 hour",            // Alternatively, run Sync jobs with an unaligned frequency, using natural language.
 
     //==================
-    // Authentication (only needed for OAuth, leverages Pizzly)
+    // Authentication (only needed for OAuth, leverages Nango)
     //==================
-    pizzly_connection_id: "user1",  // The ID of the connection registered with Pizzly
-    pizzly_provider_config_key: "hubspot",  // The key of the provider configuration registered with Pizzly
+    nango_connection_id: "user1",  // The ID of the connection registered with Nango
+    nango_provider_config_key: "hubspot",  // The key of the provider configuration registered with Nango
     
     //==================
     // Convenience features
@@ -126,8 +126,8 @@ new Nango().sync('https://api.example.com/my/endpoint?query=A+query', config);
     "paging_header_link_rel": "next",
     "auto_mapping": true,
     "frequency": 15,
-    "pizzly_connection_id": "user1",
-    "pizzly_provider_config_key": "hubspot",
+    "nango_connection_id": "user1",
+    "nango_provider_config_key": "hubspot",
     "max_total": 100,
     "friendly_name": "My Sync",
     "metadata": { "company_id": 123 }
@@ -183,11 +183,11 @@ new Nango().sync('https://api.example.com/my/endpoint?query=A+query', config);
 # - frequency: Sync interval in minutes. Default: 60
 #
 #==================
-# Authentication (only needed for OAuth, leverages Pizzly)
+# Authentication (only needed for OAuth, leverages Nango)
 #==================
 #
-# - pizzly_connection_id: The ID of the connection registered with Pizzly
-# - pizzly_provider_config_key: The key of the provider configuration registered with Pizzly
+# - nango_connection_id: The ID of the connection registered with Nango
+# - nango_provider_config_key: The key of the provider configuration registered with Nango
 #
 #==================
 # Convenience features

@@ -168,18 +168,18 @@ class Tests {
             },
             {
                 unique_key: process.env['NANGO_TEST_GMAIL_PROVIDER']!,
-                provider: process.env['NANGO_TEST_GMAIL_TEMPLATE']!,
+                provider: process.env['NANGO_TEST_GMAIL_PROVIDER']!,
                 oauth_client_id: process.env['NANGO_TEST_GMAIL_CLIENT']!,
                 oauth_client_secret: process.env['NANGO_TEST_GMAIL_SECRET']!,
                 oauth_scopes: process.env['NANGO_TEST_GMAIL_SCOPES']!
             }
         ];
 
-        await db.knex(`pizzly._pizzly_connections`).del();
-        await db.knex(`pizzly._pizzly_connections`).insert(allCredParams.map((o) => this.getOAuth2Creds(o)));
+        await db.knex(`nango._nango_connections`).del();
+        await db.knex(`nango._nango_connections`).insert(allCredParams.map((o) => this.getOAuth2Creds(o)));
 
-        await db.knex(`pizzly._pizzly_configs`).del();
-        await db.knex(`pizzly._pizzly_configs`).insert(providerConfigs);
+        await db.knex(`nango._nango_configs`).del();
+        await db.knex(`nango._nango_configs`).insert(providerConfigs);
     }
 
     getOAuth2Creds(credParams: { providerKey: string; refreshToken: string }) {

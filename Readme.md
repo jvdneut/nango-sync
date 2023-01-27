@@ -1,6 +1,6 @@
 <div align="center">
   
-  ![Nango Logo](https://uploads-ssl.webflow.com/62a9f4a7a5a3d9ef1439982a/6311c3a48ebd85d6ed8f8f05_logo-background.png)
+  ![Nango Logo](https://uploads-ssl.webflow.com/63c092e946f9b71ff6874169/63d3a435a6b96f3ad3e73312_nango-logo.png)
 
 </div>
 
@@ -12,15 +12,15 @@ The service that lets you easily synchronise data between your app and any 3rd-p
 
 <p align="center">
     <br />
-    <a href="https://docs.nango.dev" rel="dofollow"><strong>Explore the docs »</strong></a>
+    <a href="https://docs.nango.dev/sync" rel="dofollow"><strong>Explore the docs »</strong></a>
     <br />
 
   <br/>
     <a href="https://nango.dev">Website</a>
     ·
-    <a href="https://docs.nango.dev/real-world-examples">Examples</a>
+    <a href="https://docs.nango.dev/nango-sync/real-world-examples">Examples</a>
     ·
-    <a href="https://github.com/nangohq/nango/issues">Report Bug</a>
+    <a href="https://github.com/nangohq/nango-sync/issues">Report Bug</a>
     ·
     <a href="https://nango.dev/slack">Slack</a>
     ·
@@ -44,9 +44,9 @@ We pre-built these components so you don’t have to and can focus on shipping l
 
 # ✨ How it works
 
-With Nango, building integrations becomes as simple as: 
+With Nango, building integrations becomes as simple as:
 
-1. Authenticate users with OAuth in your frontend: 
+1. Authenticate users with OAuth in your frontend:
 
 ```jsx
 nango.auth('hubspot', '<user-id>'); // Starts OAuth flow
@@ -59,36 +59,37 @@ nango.sync('https://api.hubspot.com/crm/v3/contacts', config); // Syncs contacts
 ```
 
 3. Read the always-fresh data from the DB and use it in your app
+
 ```sql
 SELECT * FROM hubspot_contacts WHERE ...
 ```
 
 Additionally, Nango has out-of-the-box support for:
 
-- 🔐 OAuth token retrieval & refresh
-- 📶 Incremental syncs
-- 🪝 Webhooks
-- ⚡️ JSON-to-SQL schema mapping
-- 🔄 Retries & rate-limit handling
-- 🚀 Scalable & flexible open-source infrastructure
-- ✅ Language-agnostic
-- ☁️ Self-hosted and Cloud options
+-   🔐 OAuth token retrieval & refresh
+-   📶 Incremental syncs
+-   🪝 Webhooks
+-   ⚡️ JSON-to-SQL schema mapping
+-   🔄 Retries & rate-limit handling
+-   🚀 Scalable & flexible open-source infrastructure
+-   ✅ Language-agnostic
+-   ☁️ Self-hosted and Cloud options
 
 # 🧑‍💻 Example use cases
 
-Nango is API agnostic: It works with any API endpoint that returns JSON (you just need to [give it a few details](https://docs.nango.dev/nango-sync/sync-all-options) about the endpoint).
+Nango is API agnostic: It works with any API endpoint that returns JSON (you just need to [give it a few details](https://docs.nango.dev/nango-sync/use-nango/sync-all-options) about the endpoint).
 
 While Nango supports millions of APIs, here are some of the most popular ones:
 
-- **CRMs** such as [HubSpot](https://docs.nango.dev/real-world-examples#hubspot-sync-all-hubspot-crm-contacts), Salesforce, Pipedrive, Zoho CRM, Zendesk Sell etc.
-- **Accounting systems** such as Quickbooks, Xero, Netsuite, Zoho Books, Freshbooks etc.
-- **Cloud providers** such as AWS, GCP, Azure, DigitalOcean, Fly.io, Heroku etc.
-- **Productivity tools** such as Gmail, Google Calendar, [Slack](https://docs.nango.dev/real-world-examples#slack-sync-all-posts-from-a-slack-channel), Outlook 365, Zoom, Google Drive etc.
-- **Project Management tools** such as Airtable, Asana, Monday.com, ClickUp etc.
-- **Dev tools** such as [Github](https://docs.nango.dev/real-world-examples#github-sync-all-stargazers-from-a-repo), Gitlab, JIRA, Trello, Figma etc.
+-   **CRMs** such as [HubSpot](https://docs.nango.dev/nango-sync/real-world-examples#hubspot-sync-all-hubspot-crm-contacts), Salesforce, Pipedrive, Zoho CRM, Zendesk Sell etc.
+-   **Accounting systems** such as Quickbooks, Xero, Netsuite, Zoho Books, Freshbooks etc.
+-   **Cloud providers** such as AWS, GCP, Azure, DigitalOcean, Fly.io, Heroku etc.
+-   **Productivity tools** such as Gmail, Google Calendar, [Slack](https://docs.nango.dev/nango-sync/real-world-examples#slack-sync-all-posts-from-a-slack-channel), Outlook 365, Zoom, Google Drive etc.
+-   **Project Management tools** such as Airtable, Asana, Monday.com, ClickUp etc.
+-   **Dev tools** such as [Github](https://docs.nango.dev/nango-sync/real-world-examples#github-sync-all-stargazers-from-a-repo), Gitlab, JIRA, Trello, Figma etc.
 -   ...any API endpoint that returns JSON
 
-The docs have [more examples](https://docs.nango.dev/real-world-examples) of Nango configurations for different APIs and endpoints.
+The docs have [more examples](https://docs.nango.dev/nango-sync/real-world-examples) of Nango configurations for different APIs and endpoints.
 
 # 🚀 Quickstart
 
@@ -97,16 +98,16 @@ Let’s sync the Pokémon API to your DB in 3 minutes.
 Clone the repo and start Nango locally…
 
 ```bash
-git clone https://github.com/NangoHQ/nango.git 
+git clone https://github.com/NangoHQ/nango.git
 cd nango && docker compose up
 ```
 
 ...and create a Sync with a simple CURL command:
 
 ```bash
-curl --request POST \     
-	--url http://localhost:3003/v1/syncs \     
-	--header "Content-type: application/json" \     
+curl --request POST \
+	--url http://localhost:3003/v1/syncs \
+	--header "Content-type: application/json" \
 	--data '{"url": "https://pokeapi.co/api/v2/pokemon", "response_path": "results", "paging_url_path":"next", "mapped_table":"pokemons", "frequency":"1 minute"}'
 ```
 
@@ -118,12 +119,12 @@ Request a Nango instance on the [Slack community](https://nango.dev/slack) (free
 
 # 🔗 Links
 
-- See the [documentation](https://docs.nango.dev) to learn more about all the features
-- Use our [examples](https://docs.nango.dev/real-world-examples) to get inspiration and learn how to sync data from various APIs
-- Join our [Slack community](https://nango.dev/slack) if you need help, want to chat or follow releases
-- Check our [blog on in-app integrations](https://www.nango.dev/blog)
-- Follow us on [Twitter](https://twitter.com/nangohq) for the latest news
-- You can email us as well: hello@nango.dev
+-   See the [documentation](https://docs.nango.dev/sync) to learn more about all the features
+-   Use our [examples](https://docs.nango.dev/nango-sync/real-world-examples) to get inspiration and learn how to sync data from various APIs
+-   Join our [Slack community](https://nango.dev/slack) if you need help, want to chat or follow releases
+-   Check our [blog on in-app integrations](https://www.nango.dev/blog)
+-   Follow us on [Twitter](https://twitter.com/nangohq) for the latest news
+-   You can email us as well: hello@nango.dev
 
 # 💪 Contributors
 

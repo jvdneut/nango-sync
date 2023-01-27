@@ -1,76 +1,73 @@
 ---
-slug: /
+slug: '/'
 sidebar_label: Introduction
 ---
 
-# Nango: The fast way to integrate your app with 3rd-party APIs
+# Access to OAuth APIs. Fast & secure.
 
-The service that lets you easily synchronise data between your app and any 3rd-party API.
+Nango takes care of the OAuth dance for you and makes sure your access tokens always stay fresh.
 
+## ⭐ Nango at a glance
 
-## ⭐ Why Nango?
+Nango is a small, self-contained service (docker container) that contains everything you need to work with APIs that use OAuth.
 
-Adding integrations to an app is complicated.
+Nango has been designed for modern web apps/backends and contains:
 
-At first, it looks as simple as making requests to a 3rd-party API. But you quickly need to build OAuth, background synchronisation, retries, pagination, caching, webhooks, data transformation, monitoring, etc.
+- a full OAuth 2 and OAuth 1.0a dance implementation for 50+ APIs (and more coming)
+- a frontend SDK that makes it easy trigger new OAuth flows from your web app
+- a backend SDK & REST API that make it easy to get always-fresh access tokens for your API calls
+- a CLI that makes it easy to manage your OAuth provider configs, setup different environments and debug OAuth issues
 
-We pre-built these components so you don’t have to and can focus on shipping low maintenance integrations fast.
+Nango is easy to try in 5 minutes and can be deployed in 10.
 
-## ✨ How it works
+Start a **new OAuth flow with 2 lines of code in your frontend**:
 
-With Nango, building integrations becomes as simple as: 
+```ts
+var nango = new Nango('https://localhost:3003')
 
-1. Authenticate users with OAuth in your frontend: 
-
-```jsx
-nango.auth('hubspot', '<user-id>'); // Starts OAuth flow
+// Trigger an OAuth flow for the user to authenticate with Slack
+let result = await nango.auth('slack', '<user-id>')
 ```
 
-2. Easily sync data from any API endpoint to your DB in the backend:
+Then **get and use the current access token in your backend** (with our SDK or a simple REST API):
 
-```tsx
-nango.sync('https://api.hubspot.com/crm/v3/contacts', config); // Syncs contacts forever!
+```ts
+var slackAccessToken = await nango.getToken('slack', '<user-id>') // Always fresh & ready to use
 ```
 
-3. Read the always-fresh data from the DB and use it in your app
-```sql
-SELECT * FROM hubspot_contacts WHERE ...
-```
+## 👾 Out of the box support for 50+ APIs
 
-Additionally, Nango has out-of-the-box support for:
+More than 50 APIs are preconfigured to work out-of-the-box. Including:
 
-- 🔐 OAuth token retrieval & refresh
-- 📶 Incremental syncs
-- 🪝 Webhooks
-- ⚡️ JSON-to-SQL schema mapping
-- 🔄 Retries & rate-limit handling
-- 🚀 Scalable & flexible open-source infrastructure
-- ✅ Language-agnostic
-- ☁️ Self-hosted and Cloud options
+- **Communication**: Gmail, Microsoft Teams, Slack, Zoom;
+- **CRM**: Front, Hubspot, Salesforce, etc.
+- **Developer tools**: GitHub, GitLab, BitBucket, Jira etc.
+- **Accounting**: Xero, Sellsy, Zoho Books, etc.
+- **Productivity**: Asana, Airtable, Google Drive, Google Calendar, Trello, Google sheets etc.
+- **Social**: Twitter, LinkedIn, Reddit, Facebook etc.
+- [and more...](https://nango.dev/oauth-providers)
 
-## 🧑‍💻 Example use cases
+If your favorite API is missing [open a GitHub issue](https://github.com/NangoHQ/nango/issues/new) or [contribute it right away](contribute-api.md): The API configurations are just simple [entries in a YAML file](https://nango.dev/oauth-providers).
 
-Nango is API agnostic: It works with any API endpoint that returns JSON (you just need to [give it a few details](nango-sync/sync-all-options.md) about the endpoint).
+## 🛡️ Small, self-contained & ready for production
 
-While Nango supports millions of APIs, here are some of the most popular ones:
+We built Nango because we wanted a simple and fast way to get (fresh) access tokens for any API that requires OAuth.
 
-- **CRMs** such as [HubSpot](real-world-examples.md#hubspot-sync-all-hubspot-crm-contacts), Salesforce, Pipedrive, Zoho CRM, Zendesk Sell etc.
-- **Accounting systems** such as Quickbooks, Xero, Netsuite, Zoho Books, Freshbooks etc.
-- **Cloud providers** such as AWS, GCP, Azure, DigitalOcean, Fly.io, Heroku etc.
-- **Productivity tools** such as Gmail, Google Calendar, [Slack](real-world-examples.md#slack-sync-all-posts-from-a-slack-channel), Outlook 365, Zoom, Google Drive etc.
-- **Project Management tools** such as Airtable, Asana, Monday.com, ClickUp etc.
-- **Dev tools** such as [Github](real-world-examples.md#github-sync-all-stargazers-from-a-repo), Gitlab, JIRA, Trello, Figma etc.
--   ...any API endpoint that returns JSON
+On purpose Nango is small, focused on its one task and easy to deploy in production:
 
-The docs have [more examples](real-world-examples.md) of Nango configurations for different APIs and endpoints.
+- It runs as a single docker container in your stack
+- Updating it is as simple as `docker pull` and restarting the container
+- Securing it for production is quick & easy with only a minimal interface exposed publicly
+- Our CLI helps you with all admin tasks (such as setting scopes, enabling APIs etc.)
 
-## 🔍 Try it & learn more
+Last but not least, Nango's active community continuously expands & updates the 50+ blueprints. So your OAuth flows & tokens will keep on working even 5 years down the road.
 
-**See Nango in Action**  
-The fastest way to see Nango in action is with our [Quickstart 🚀](quickstart.md), head over there and sync data to your local machine in less than 3 minutes.
+## 🚀 Get started with Nango
 
-**Understand how Nango works**  
-If you are ready to take a closer look we recommend you start with the [Core concepts](nango-sync/core-concepts.md).
+Nango can be added to your product in just 15-20 minutes with our [Quickstart](quickstart.md) guide.
 
-**See what you can build with Nango**  
-You can also check out some [real-world examples](real-world-examples.md) of things you can sync with Nango (keep in mind, it works with any API endpoint so these are just examples). Or join our [Slack community](https://nango.dev/slack) to see what others are building with Nango.
+Or explore more about Nango:
+- For a first impression check out the [Quickstart](https://github.com/NangoHQ/nango#quickstart) on our GitHub repo
+- Explore [the full list of supported APIs](https://nango.dev/oauth-providers)
+- [Contribute a new API](contribute-api.md)
+- Share feedback or ask questions on the [Slack community](https://nango.dev/slack)

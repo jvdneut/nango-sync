@@ -21,8 +21,8 @@ export interface Sync {
     mapped_table?: string;
     frequency?: number;
     cron?: number;
-    pizzly_connection_id?: string;
-    pizzly_provider_config_key?: string;
+    nango_connection_id?: string;
+    nango_provider_config_key?: string;
     max_total?: number;
     metadata?: Record<string, string | number | boolean>;
     friendly_name?: string;

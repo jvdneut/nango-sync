@@ -72,9 +72,9 @@ async function addStargazersSync(owner, repo, user_id) {
     new Nango().sync(`https://api.github.com/repos/${owner}/${repo}/stargazers`, nango_options); 
 }
 
-// Add a Sync each for the nango repo and the pizzly repo for the user with id 1
+// Add a Sync each for the nango repo and the nango-sync repo for the user with id 1
 addStargazersSync('NangoHQ', 'nango', 1);
-addStargazersSync('NangoHQ', 'pizzly', 1);
+addStargazersSync('NangoHQ', 'nango-sync', 1);
 ```
 
   </TabItem>
@@ -117,7 +117,7 @@ github_stargazers
 ├────────────────────────────┼─────────┼─────────────┼─────────┼──────────────────────────────────┤
 │ 2022-12-07 14:01:52.019+00 │       1 │ nango       │ sradu   │ https://avatars.githubusercon... │
 │ 2022-12-07 14:01:52.028+00 │       1 │ nango       │ bastien │ https://avatars.githubusercon... │
-│ 2022-12-07 14:01:52.093+00 │       1 │ pizzly      │ sradu   │ https://avatars.githubusercon... │
+│ 2022-12-07 14:01:52.093+00 │       1 │ nango-sync  │ sradu   │ https://avatars.githubusercon... │
 └────────────────────────────┴─────────┴─────────────┴─────────┴──────────────────────────────────┘
 ```
 Remember that Syncs are continuous, so Nango will automatically keep the data in this table up to date even as more people star the repos (or stars get removed).

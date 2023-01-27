@@ -3,14 +3,14 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   docsSidebar: [
-    'introduction',
-    'quickstart', 
+    'nango-sync/introduction',
+    'nango-sync/quickstart', 
     {
       type: 'category',
       label: 'Use Nango',
       items: [
         {
-          id: 'nango-sync/core-concepts',
+          id: 'nango-sync/use-nango/core-concepts',
           type: 'doc',
           label: 'Core concepts'
         },
@@ -19,68 +19,88 @@ const sidebars = {
           label: 'Create Syncs',
           items: [
             {
-              id: 'nango-sync/sync-all-options',
+              id: 'nango-sync/use-nango/sync-all-options',
               type: 'doc',
               label: 'All Options'
             },
             {
-              id: 'nango-sync/sync-modes',
+              id: 'nango-sync/use-nango/sync-modes',
               type: 'doc',
               label: 'Modes'
             },
             {
-              id: 'nango-sync/sync-schedule',
+              id: 'nango-sync/use-nango/sync-schedule',
               type: 'doc',
               label: 'Scheduling'
             },
             {
-              id: 'nango-sync/sync-metadata',
+              id: 'nango-sync/use-nango/sync-metadata',
               type: 'doc',
               label: 'Metadata'
             },
             {
-              id: 'nango-sync/sync-pagination',
+              id: 'nango-sync/use-nango/sync-pagination',
               type: 'doc',
               label: 'Pagination'
             },
             {
-              id: 'nango-sync/sync-auth',
+              id: 'nango-sync/use-nango/sync-auth',
               type: 'doc',
               label: 'Authentication'
             },
           ]
         },
         {
-          id: 'nango-sync/manage-syncs',
+          id: 'nango-sync/use-nango/manage-syncs',
           type: 'doc',
           label: 'Manage Syncs'
         },
         {
-          id: 'nango-sync/sync-notifications',
+          id: 'nango-sync/use-nango/sync-notifications',
           type: 'doc',
           label: 'Sync Notifications'
         },
         {
-          id: 'nango-sync/schema-mappings',
+          id: 'nango-sync/use-nango/schema-mappings',
           type: 'doc',
           label: 'Schema mappings'
         },
         {
-          id: 'nango-sync/db-config',
+          id: 'nango-sync/use-nango/db-config',
           type: 'doc',
           label: 'DB Configuration'
         },
         {
-          id: 'nango-sync/observability',
+          id: 'nango-sync/use-nango/observability',
           type: 'doc',
           label: 'Observability'
         }
       ]
     },
     {
-      id: 'real-world-examples',
+      id: 'nango-sync/real-world-examples',
       type: 'doc',
       label: 'Examples'
+    },
+    {
+      id: 'nango-sync/architecture',
+      type: 'doc',
+      label: 'Architecture & Vision'
+    },
+    {
+      id: 'nango-sync/license-faq',
+      type: 'doc',
+      label: 'License FAQ & Pricing'
+    },
+    'nango-sync/contributing'
+  ],
+  nango: [
+    'introduction',
+    'quickstart',
+    {
+      id: 'cloud',
+      type: 'doc',
+      label: 'Nango Cloud'
     },
     {
       type: 'category',
@@ -88,8 +108,8 @@ const sidebars = {
       link: {
         type: 'generated-index',
         title: 'Deploy Nango Open Source',
-        description: 'Nango is easy to self-host on a single machine using Docker. Here are tutorials (<5mins each) to deploy Nango in various environments:',
-        slug: '/category/deploy-nango-open-source'
+        description: 'Self-host Nango on a single machine using Docker. For production use cases, we recommend using Nango Cloud (see Limitations below).',
+        slug: '/category/deploy-nango-sync-open-source'
       },
       items: [
         {
@@ -112,52 +132,25 @@ const sidebars = {
           type: 'doc',
           label: 'On Digital Ocean'
         },
+        {
+          id: 'nango-deploy/oss-limitations',
+          type: 'doc',
+          label: 'Limitations'
+        },
       ]
     },
-    'cloud',
     {
-      id: 'architecture',
+      id: 'cli',
       type: 'doc',
-      label: 'Architecture & Vision'
+      label: 'CLI'
     },
     {
-      id: 'license-faq',
+      id: 'configuration',
       type: 'doc',
-      label: 'License FAQ & Pricing'
+      label: 'Other Configuration'
     },
-    'contributing'
-  ],
-  pizzly: [
-    'pizzly/introduction',
-    'pizzly/getting-started',
-    {
-      type: 'category',
-      label: 'Deploying Pizzly',
-      items: [
-        {
-          id: 'pizzly/pizzly-security',
-          type: 'doc',
-          label: 'Securing Your Instance'
-        },
-        {
-          id: 'pizzly/pizzly-storage',
-          type: 'doc',
-          label: 'Storage & Logs'
-        },
-        {
-          id: 'pizzly/pizzly-configuration',
-          type: 'doc',
-          label: 'Other Configuration'
-        },
-        {
-          id: 'pizzly/pizzly-cli',
-          type: 'doc',
-          label: 'CLI'
-        }
-      ]
-    },
-    'pizzly/contribute-api',
-    'pizzly/migration'
+    'contribute-api',
+    'migration'
   ]
 
   // But you can create a sidebar manually

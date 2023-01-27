@@ -13,9 +13,9 @@ If you are unsure if your API is supported by Nango feel free to try it (we foun
 A collection of cool things people have built with Nango.  
 The sidebar to the right has an index so you can directly jump to your favorite 👉
 
-* Want to run one of these? You can find these (and more) all ready to run in the [`/examples`](https://github.com/NangoHQ/nango/tree/main/examples) in the repo.
+* Want to run one of these? You can find these (and more) all ready to run in the [`/examples`](https://github.com/NangoHQ/nango-sync/tree/main/examples) in the repo.
 * Need help with one of these (or another API/endpoint)? Reach out on our [Community Slack](https://nango.dev/slack), we are online all day and happy to help!
-* Want to share yours? [Edit this file and submit a PR!](https://github.com/nangohq/nango/tree/main/docs/docs/real-world-examples.md)
+* Want to share yours? [Edit this file and submit a PR!](https://github.com/nangohq/nango-sync/tree/main/docs/docs/real-world-examples.md)
 
 ## Reddit: Sync all posts/submissions from a subreddit
 

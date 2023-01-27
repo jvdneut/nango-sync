@@ -1,32 +1,32 @@
 import type { Sync } from '@nangohq/core';
 import { logger } from '@nangohq/core';
-import { Pizzly } from '@nangohq/pizzly-node';
+import { Nango } from '@nangohq/node';
 import { getServerBaseUrl } from '@nangohq/core';
 
 class OAuthManager {
-    pizzly: Pizzly | null;
+    nango: Nango | null;
 
     constructor() {
-        this.pizzly = new Pizzly(getServerBaseUrl()); // The Pizzly server is embedded in the Nango server.
+        this.nango = new Nango(getServerBaseUrl()); // The Nango server is embedded in the Nango server.
     }
 
     public async insertOAuthTokenIfNeeded(sync: Sync): Promise<Sync> {
         let syncCp = sync;
 
-        if (syncCp.pizzly_connection_id == null || syncCp.pizzly_provider_config_key == null || this.pizzly == null) {
+        if (syncCp.nango_connection_id == null || syncCp.nango_provider_config_key == null || this.nango == null) {
             return syncCp;
         }
 
-        let accessToken = await this.pizzly.accessToken(syncCp.pizzly_provider_config_key, syncCp.pizzly_connection_id).catch((err) => {
+        let accessToken = await this.nango.getToken(syncCp.nango_provider_config_key, syncCp.nango_connection_id).catch((err) => {
             // Invert params
             throw new Error(
-                `Access token request to Pizzly failed: ${err?.response?.data?.error != null ? JSON.stringify(err.response.data.error) : JSON.stringify(err)}`
+                `Access token request to Nango failed: ${err?.response?.data?.error != null ? JSON.stringify(err.response.data.error) : JSON.stringify(err)}`
             );
         });
 
-        logger.debug(`Authenticating request for Pizzly provider ${syncCp.pizzly_provider_config_key} and connection ${syncCp.pizzly_connection_id}.`);
+        logger.debug(`Authenticating request for Nango provider ${syncCp.nango_provider_config_key} and connection ${syncCp.nango_connection_id}.`);
 
-        syncCp.url = this.interpolateString(syncCp.url, { pizzlyAccessToken: accessToken });
+        syncCp.url = this.interpolateString(syncCp.url, { nangoAccessToken: accessToken });
 
         if (syncCp.headers != null) {
             syncCp.headers = this.traverseAndInsertToken(syncCp.headers, accessToken) as Record<string, string | number | boolean>;
@@ -50,7 +50,7 @@ class OAuthManager {
             if (typeof object[key] === 'object' && object[key] !== null) {
                 object[key] = this.traverseAndInsertToken(object[key], accessToken);
             } else if (object[key] != null && (typeof object[key] === 'string' || object[key] instanceof String)) {
-                object[key] = this.interpolateString(object[key], { pizzlyAccessToken: accessToken });
+                object[key] = this.interpolateString(object[key], { nangoAccessToken: accessToken });
             }
         }
 

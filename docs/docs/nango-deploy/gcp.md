@@ -8,8 +8,6 @@ Go to the [Compute Engine service](https://console.cloud.google.com/compute/inst
 - `e2-medium` for testing, `e2-standard-2` for production
 - Enable *Allow HTTP traffic* and *Allow HTTPS traffic*
 
-On the [instance list page](https://console.cloud.google.com/compute/instances), note the *External IP* address somewhere (referred below as INSTANCE_IP).
-
 ## Install Docker
 
 Go to your Compute Engine instance page and click *SSH*.
@@ -41,27 +39,6 @@ mkdir nango && cd nango
 wget https://raw.githubusercontent.com/NangoHQ/nango/main/docker/aws/docker-compose.yaml && wget https://raw.githubusercontent.com/NangoHQ/nango/main/.env
 docker-compose up -d # Nango is now running!
 ```
-
-In your local computer’s console, create a Nango Sync by running (replace `INSTANCE_IP` if the value from the [Create a VM](#create-vm) section): 
-
-```bash
-curl --request POST \
-    --url http://[INSTANCE_IP]/v1/syncs \
-    --header "Content-type: application/json" \
-    --data '{"url": "https://pokeapi.co/api/v2/pokemon", "response_path": "results", "paging_url_path":"next", "mapped_table":"pokemons", "frequency":"1 minute"}'
-```
-
-Back to your VM’s console, run: 
-
-```bash
-docker-compose logs -f
-```
-
-Console logs should show that jobs are running successfully (1st job should fetch 1000+ Pokémon, subsequent jobs should check that no new Pokémon was added).
-
-:::info
-This tutorial uses a local DB on the VM. Your should now connect Nango to your own database (cf. [docs](nango-sync/db-config.md#custom-database)).
-:::
 
 ## Update Nango
 

@@ -1,8 +1,23 @@
-
 # Nango Cloud
 
-If you don't want to self-host Nango, ask for a ready-to-use Nango instance on the [Slack community](https://nango.dev/slack).
+## Features
 
-For fast experimentation, Nango is easy to self-host on a single machine with Docker (cf. [Deploy Nango](category/deploy-nango-open-source)).
+- Auto-scaling
+- Auto-updates
+- Encryption at rest
+- SSL
+- Server authentication
+- Pre-approved developer accounts (soon)
+- Monitoring & alerting (soon)
+- Admin panel for handling configs & metrics (soon)
+- Proxy server to authenticate requests (soon)
+- Production-grade support & 24h turnaround to implement new integrations
 
-We plan on releasing a self-served Nango Cloud version in the coming months (mark your interest [here](https://github.com/NangoHQ/nango/issues/4)).
+## Use Nango Cloud
+
+Get an Cloud instance [here](https://nango.dev/start). Check your emails for your the instance URL and your secret key.
+
+Go through the [Quickstart](quickstart.md) and:
+- use the instance URL to instantiate the Nango frontend SDK
+- use the instance URL and the secret key to instantiate the Nango backend SDK (or API requests)
+- set the instance URL and the secret key as local environment variables (name: `NANGO_HOSTPORT` & `NANGO_SECRET_KEY`) to use the Nango CLI

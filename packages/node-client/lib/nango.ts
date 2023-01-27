@@ -27,8 +27,8 @@ export interface NangoSyncConfig {
     mapped_table?: string;
     frequency?: string;
     cron?: string;
-    pizzly_connection_id?: string;
-    pizzly_provider_config_key?: string;
+    nango_connection_id?: string;
+    nango_provider_config_key?: string;
     max_total?: number;
     friendly_name?: string;
     metadata?: Record<string, string | number | boolean>;
@@ -65,8 +65,8 @@ export class Nango {
             mapped_table: config.mapped_table,
             frequency: config.frequency,
             cron: config.cron,
-            pizzly_connection_id: config.pizzly_connection_id,
-            pizzly_provider_config_key: config.pizzly_provider_config_key,
+            nango_connection_id: config.nango_connection_id,
+            nango_provider_config_key: config.nango_provider_config_key,
             max_total: config.max_total,
             friendly_name: config.friendly_name,
             metadata: config.metadata,

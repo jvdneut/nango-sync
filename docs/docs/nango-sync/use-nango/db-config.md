@@ -2,7 +2,7 @@
 
 ## Supported databases
 
-Currently, Nango supports only Postgres databases as a destination for the synced data. You can request support for more database types on this [issue](https://github.com/NangoHQ/nango/issues/68).
+Currently, Nango supports only Postgres databases as a destination for the synced data. You can request support for more database types on this [issue](https://github.com/NangoHQ/nango-sync/issues/68).
 
 ## Where Nango stores data
 

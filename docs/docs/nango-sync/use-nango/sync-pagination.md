@@ -4,7 +4,7 @@ import TabItem from '@theme/TabItem';
 # Pagination
 Nango currently supports various pagination strategies, with more in the works. 
 
-Your favorite API is not compatible? [Open a github issue](https://github.com/NangoHQ/nango/issues/new) with a link to the endpoint documentation and a sample response and we will make it work with a fast turnaround!
+Your favorite API is not compatible? [Open a github issue](https://github.com/NangoHQ/nango-sync/issues/new) with a link to the endpoint documentation and a sample response and we will make it work with a fast turnaround!
 
 ### Pagination Strategy 1: Next page cursor in response metadata
 
