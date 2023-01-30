@@ -51,6 +51,6 @@ docker-compose pull
 docker-compose up -d
 ```
 
-## Limitations
+## Limitations & production use
 
-The Nango Open Source version has some [limitations](oss-limitations.md) that you should read before deploying to production.
+The open-source setup has been optimized for quick deployment and local usage. Before you deploy open source Nango to production we recommend you read about the [production limitations](oss-limitations.md) and mitigate them.

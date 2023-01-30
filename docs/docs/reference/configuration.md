@@ -1,4 +1,4 @@
-# Other configuration
+# Advanced configuration
 
 ### CLI Host & Port
 

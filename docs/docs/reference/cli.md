@@ -4,9 +4,18 @@ You can manage your Provider Configurations & Connections using the Nango CLI.
 
 Run `npx nango` to get a list of all CLI commands.
 
-## Set up the Nango host
+## Setting the Nango host & secret key
 
-By default, The CLI uses the host/port `http://localhost:3003` to call the Nango server. You can customize this by setting the environment variable named `NANGO_HOSTPORT` in your CLI environment, using a `.bashrc` or `.zshrc` file.
+By default, the CLI expects the Nango server to be reachable at `http://localhost:3003`. You can change this by setting the environment variable `NANGO_HOSTPORT` in your CLI environment.
+
+If your instance is protected with a secret key (all Nango Cloud instances are, and hopefully your production instance is) you also need to set it with the `NANGO_SECRET_KEY` environment variable.
+
+We recommend you store both in a `.bashrc` or `.zshrc` file:
+
+```bash
+export NANGO_HOSTPORT=https://nango<instance-id>.onrender.com;
+export NANGO_SECRET_KEY=<secret-key>;
+```
 
 ## Manage Provider Configurations
 
@@ -20,11 +29,11 @@ Run `npx nango config:get <provider_config_key>` to get a specific Provider Conf
 
 ### Create
 
-Run `npx nango config:create <provider_config_key> <provider> <oauth_client_id> <oauth_client_secret> <oauth_scopes>` to create a new Provider Configuration. If specifying multiple OAuth scopes in `<oauth_scopes>`, they should be separated by commas (e.g. `oauth,read`).
+Run `npx nango config:create <provider_config_key> <provider> <oauth_client_id> <oauth_client_secret> <oauth_scopes>` to create a new Provider Configuration. If you specify multiple OAuth scopes in `<oauth_scopes>` they should be separated by commas (e.g. `oauth,read`), regardless of what the instructions of the OAuth provider are.
 
 ### Edit
 
-Run `npx nango config:edit <provider_config_key> <provider> <oauth_client_id> <oauth_client_secret> <oauth_scopes>` to edit an existing Provider Configuration. If specifying multiple OAuth scopes in `<oauth_scopes>`, they should be separated by commas (e.g. `oauth,read`).
+Run `npx nango config:edit <provider_config_key> <provider> <oauth_client_id> <oauth_client_secret> <oauth_scopes>` to edit an existing Provider Configuration. If you specify multiple OAuth scopes in `<oauth_scopes>` they should be separated by commas (e.g. `oauth,read`), regardless of what the instructions of the OAuth provider are.
 
 ### Delete
 
