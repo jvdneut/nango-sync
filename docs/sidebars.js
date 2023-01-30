@@ -98,6 +98,27 @@ const sidebars = {
     'introduction',
     'quickstart',
     {
+      type: 'category',
+      label: 'Reference',
+      items: [
+        {
+          id: 'reference/guide',
+          type: 'doc',
+          label: 'Step-By-Step Guide'
+        },
+        {
+          id: 'reference/cli',
+          type: 'doc',
+          label: 'CLI'
+        },
+        {
+          id: 'reference/configuration',
+          type: 'doc',
+          label: 'Other Configuration'
+        }
+      ]
+    },
+    {
       id: 'cloud',
       type: 'doc',
       label: 'Nango Cloud'
@@ -138,16 +159,6 @@ const sidebars = {
           label: 'Limitations'
         },
       ]
-    },
-    {
-      id: 'cli',
-      type: 'doc',
-      label: 'CLI'
-    },
-    {
-      id: 'configuration',
-      type: 'doc',
-      label: 'Other Configuration'
     },
     'contribute-api',
     'migration'

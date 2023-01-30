@@ -35,7 +35,7 @@ provider_slug:                                              # Shorthand for the 
     scope_separator: ','                                    # String to use to separate scopes. Defaults to ' ' (1 space) if not provided
 ```
 
-Templates support [string interpolation for dynamic URLs](./configuration.md#connection-config). 
+Templates support [string interpolation for dynamic URLs](./reference/configuration.md#connection-config). 
 
 ## Step 1: Add your new API to `providers.yaml`
 
