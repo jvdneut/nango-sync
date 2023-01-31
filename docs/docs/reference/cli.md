@@ -29,11 +29,11 @@ Run `npx nango config:get <provider_config_key>` to get a specific Provider Conf
 
 ### Create
 
-Run `npx nango config:create <provider_config_key> <provider> <oauth_client_id> <oauth_client_secret> <oauth_scopes>` to create a new Provider Configuration. If you specify multiple OAuth scopes in `<oauth_scopes>` they should be separated by commas (e.g. `oauth,read`), regardless of what the instructions of the OAuth provider are.
+Run `npx nango config:create <provider_config_key> <provider> <oauth_client_id> <oauth_client_secret> <oauth_scopes>` to create a new Provider Configuration. If you specify multiple OAuth scopes in `<oauth_scopes>` they should be separated by commas (e.g. `oauth,read`), regardless of what the instructions of the OAuth provider are (Nango will reformat them if needed).
 
 ### Edit
 
-Run `npx nango config:edit <provider_config_key> <provider> <oauth_client_id> <oauth_client_secret> <oauth_scopes>` to edit an existing Provider Configuration. If you specify multiple OAuth scopes in `<oauth_scopes>` they should be separated by commas (e.g. `oauth,read`), regardless of what the instructions of the OAuth provider are.
+Run `npx nango config:edit <provider_config_key> <provider> <oauth_client_id> <oauth_client_secret> <oauth_scopes>` to edit an existing Provider Configuration. If you specify multiple OAuth scopes in `<oauth_scopes>` they should be separated by commas (e.g. `oauth,read`), regardless of what the instructions of the OAuth provider are (Nango will reformat them if needed).
 
 ### Delete
 
@@ -43,4 +43,4 @@ Run `npx nango config:delete <provider_config_key>` to delete an existing Provid
 
 ### Get
 
-Run `npx nango connection:get <connection_id>` to get a Connection with credentials. 
+Run `npx nango connection:get <connection_id> <provider_config_key>` to get a Connection with credentials. 
