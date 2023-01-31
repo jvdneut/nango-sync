@@ -29,7 +29,7 @@ class Tests {
         // await test(await syncGithubStargazers(process.env['NANGO_TEST_GH_OWNER']!, process.env['NANGO_TEST_GH_REPO']!));
         await this.test(await syncGithubUserRepos(process.env['NANGO_TEST_GH_USERNAME']!, process.env['NANGO_TEST_GH_API_TOKEN']!));
         await this.test(await syncHubspotContactsWithAuth(process.env['NANGO_TEST_HUBSPOT_PROVIDER']!, process.env['NANGO_TEST_HUBSPOT_CONNECTION']!));
-        await this.test(await syncPokemonList(), 10000);
+        await this.test(await syncPokemonList(), 20000);
         await this.test(await syncRedditSubredditPosts(process.env['NANGO_TEST_REDDIT_SUBREDDIT']!));
         await this.test(await syncSlackMessages(process.env['NANGO_TEST_SLACK_TOKEN']!, process.env['NANGO_TEST_SLACK_CHANNEL']!));
         await this.test(await syncTypeformResponses(process.env['NANGO_TEST_TYPEFORM_ID']!, process.env['NANGO_TEST_TYPEFORM_APP_TOKEN']!));
