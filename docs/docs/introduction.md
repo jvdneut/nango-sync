@@ -18,10 +18,10 @@ Nango is easy to try in 5 minutes and can be deployed in 15:
 
 - 1-liner to start a new OAuth flow in your frontend:
 ```ts
-let result = await new Nango().auth('github', '<user-id>');
+let result = await nango.auth('github', '<user-id>');
 ```
 
-- 1-liner to retrieve a token (with our SDK or REST API):
+- 1-liner to retrieve a fresh access token (with our SDK or REST API):
 ```ts
 let token = await nango.getToken('github', '<user-id>');
 ```
@@ -53,7 +53,7 @@ Nango's community continuously maintains & expands API templates.
 ## 🔍 Where to learn more
 
 -   Explore [the full list of supported APIs](https://nango.dev/oauth-providers)
--   [Contribute a new API](https://docs.nango.dev/contribute-api)
+-   [Contribute a new provider](contribute-api)
 -   Share feedback or ask questions on the [Slack community](https://nango.dev/slack)
 -   Check our [blog on native integrations](https://www.nango.dev/blog)
 

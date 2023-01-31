@@ -20,10 +20,10 @@ cd ~ && npx nango config:create github github <client-id> <client-secret> "user,
 
 In a new terminal window, go to the `nango` repo and serve the demo page: 
 ```bash
-cd packages/frontend && python3 -m http.server 8080
+cd packages/frontend && python3 -m http.server 8000
 ```
 
-Go to the demo [page](http://localhost:8080/bin/quickstart.html) and start an OAuth flow with `github` as the config key and `1` as the connection ID.
+Go to the demo [page](http://localhost:8000/bin/quickstart.html) and start an OAuth flow with `github` as the config key and `1` as the connection ID.
 
 Finally, fetch a fresh access token to make API calls with the API:
 ```bash
