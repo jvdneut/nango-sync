@@ -1,6 +1,6 @@
 {
     "name": "@nangohq/examples",
-    "version": "0.5.2",
+    "version": "0.7.0",
     "description": "Nango example use-cases.",
     "type": "module",
     "main": "dist/main.js",
@@ -22,8 +22,8 @@
     },
     "license": "SEE LICENSE IN LICENSE FILE IN GIT REPOSITORY",
     "dependencies": {
-        "@nangohq/core": "^0.5.2",
-        "@nangohq/node-client": "^0.5.2",
+        "@nangohq/core": "^0.7.0",
+        "@nangohq/node-client": "^0.7.0",
         "dotenv": "^16.0.3",
         "ms": "^2.1.3"
     },

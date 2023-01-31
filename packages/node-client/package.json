@@ -1,6 +1,6 @@
 {
     "name": "@nangohq/node-client",
-    "version": "0.5.2",
+    "version": "0.7.0",
     "description": "Nango's NodeJS client.",
     "type": "module",
     "main": "dist/lib/nango.js",
