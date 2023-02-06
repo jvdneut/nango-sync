@@ -29,7 +29,7 @@ services:
     - type: web
       name: nango-server
       env: docker
-      repo: https://github.com/NangoHQ/nango
+      repo: https://github.com/NangoHQ/nango-sync
       plan: starter
       branch: main
       rootDir: ./render/server/
@@ -58,7 +58,7 @@ services:
     - type: worker
       name: nango-worker
       env: docker
-      repo: https://github.com/NangoHQ/nango
+      repo: https://github.com/NangoHQ/nango-sync
       plan: starter
       branch: main
       rootDir: ./render/worker/
