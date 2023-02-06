@@ -2,7 +2,7 @@ services:
     - type: pserv
       name: nango-temporal
       env: docker
-      repo: https://github.com/NangoHQ/nango
+      repo: https://github.com/NangoHQ/nango-sync
       plan: starter
       branch: main
       rootDir: ./render/temporal/
@@ -30,7 +30,7 @@ services:
       name: nango-server
       env: docker
       repo: https://github.com/NangoHQ/nango
-      plan: free
+      plan: starter
       branch: main
       rootDir: ./render/server/
       envVars:
@@ -88,4 +88,4 @@ databases:
     - name: nango-db
       databaseName: nango
       user: nango
-      plan: free
+      plan: starter
