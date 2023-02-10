@@ -17,6 +17,7 @@ export interface Sync {
     paging_offset_request_path?: string;
     paging_limit_request_path?: string;
     paging_limit?: number;
+    paging_number_request_path?: string;
     auto_mapping: boolean;
     mapped_table?: string;
     frequency?: number;

@@ -21,6 +21,7 @@ class SyncsController {
             paging_offset_request_path: req.body['paging_offset_request_path'],
             paging_limit_request_path: req.body['paging_limit_request_path'],
             paging_limit: req.body['paging_limit'],
+            paging_number_request_path: req.body['paging_number_request_path'],
             auto_mapping: req.body['auto_mapping'] || true, // Default to auto mapping enabled.
             mapped_table: req.body['mapped_table'],
             frequency: req.body['frequency'],

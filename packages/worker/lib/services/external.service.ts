@@ -56,6 +56,16 @@ class ExternalService {
                 }
             }
 
+            //  Fetching subsequent page (param in URL)
+            if (sync.paging_number_request_path != null) {
+                if (['get', 'delete'].includes(sync.method)) {
+                    // TODO add first page number? (0 or 1)
+                    config.params[sync.paging_number_request_path] = page;
+                } else if (['post', 'put', 'patch'].includes(sync.method)) {
+                    sync.body[sync.paging_number_request_path] = page;
+                }
+            }
+
             logger.debug(
                 `(Sync ID: ${sync.id}) Fetching page ${page} with url ${syncWithAuth.url} (method: ${JSON.stringify(sync.method)}). Header: ${JSON.stringify(
                     config.headers
@@ -138,6 +148,16 @@ class ExternalService {
             if (sync.paging_offset_request_path != null && sync.paging_limit_request_path != null && sync.paging_limit != null) {
                 if (newResults.length > 0) {
                     offset += newResults.length;
+                    continue;
+                } else {
+                    // The last page was empty, so we should not count it.
+                    page -= 1;
+                }
+            }
+
+            if (sync.paging_number_request_path != null) {
+                // TODO check for page_number_end?
+                if (newResults.length > 0) {
                     continue;
                 } else {
                     // The last page was empty, so we should not count it.
